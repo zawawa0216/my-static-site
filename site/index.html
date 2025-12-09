@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Static Site</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">My Static Site</div>
+      <nav>
+        <a href="#features">特徴</a>
+        <a href="#steps">使い方</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid two-column">
+        <div>
+          <p class="eyebrow">静的サイトのスターター</p>
+          <h1>GitHub Pages に置くだけで公開できるテンプレート</h1>
+          <p>HTML/CSS/JavaScript を <code>site/</code> 以下に置くだけで配信できるシンプルな構成です。ワークフローが自動でビルドとデプロイを行います。</p>
+          <div class="actions">
+            <a class="btn primary" href="#features">特徴を見る</a>
+            <a class="btn ghost" href="#steps">始める</a>
+          </div>
+          <div class="meta">レスポンシブ対応・軽量・依存なし</div>
+        </div>
+        <div class="card highlight">
+          <p class="muted">配置するだけで OK</p>
+          <h2>site/index.html を更新</h2>
+          <ul class="checklist">
+            <li>コンテンツを追加</li>
+            <li>必要なら <code>assets/</code> に画像やスクリプトを追加</li>
+            <li>プレビュー後、push で自動公開</li>
+          </ul>
+          <button id="theme-toggle" class="btn secondary full">ダークモードを試す</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <p class="eyebrow">FEATURES</p>
+        <h2>静的サイト運用をシンプルに</h2>
+        <div class="grid three-column">
+          <article class="card">
+            <h3>フォルダー構成</h3>
+            <p><code>site/</code> に公開したいファイルを置くだけ。ビルド済みの <code>dist/</code> を配置するケースにも対応できます。</p>
+          </article>
+          <article class="card">
+            <h3>自動デプロイ</h3>
+            <p>GitHub Actions のワークフローが変更を検知し、GitHub Pages に公開します。ブランチやパスは設定で調整可能です。</p>
+          </article>
+          <article class="card">
+            <h3>開発しやすい</h3>
+            <p>追加のビルドツールなしでもそのまま編集可能。必要なら好みのフレームワークでビルドして出力物だけを配置できます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="steps" class="section alt">
+      <div class="container">
+        <p class="eyebrow">HOW TO</p>
+        <h2>セットアップは3ステップ</h2>
+        <ol class="steps">
+          <li>
+            <div class="badge">1</div>
+            <div>
+              <h3>コンテンツを編集</h3>
+              <p><code>site/index.html</code> や <code>assets/styles.css</code> を更新し、必要な画像や JS を追加します。</p>
+            </div>
+          </li>
+          <li>
+            <div class="badge">2</div>
+            <div>
+              <h3>ローカルでプレビュー</h3>
+              <p>静的ファイルなのでブラウザで直接開くだけで確認できます。シンプルな HTTP サーバーを立てても OK。</p>
+            </div>
+          </li>
+          <li>
+            <div class="badge">3</div>
+            <div>
+              <h3>GitHub に push</h3>
+              <p>ワークフローが自動的にビルドして Pages にデプロイします。デフォルトでは <code>site/</code> 配下が公開対象です。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container grid two-column">
+        <div>
+          <p class="eyebrow">CONTACT</p>
+          <h2>質問やフィードバックをお待ちしています</h2>
+          <p>このテンプレートは自由にカスタマイズできます。デザインを刷新したり、フレームワークのビルド成果物を置くだけでも動作します。</p>
+        </div>
+        <form class="card form" id="contact-form">
+          <label>お名前
+            <input type="text" name="name" placeholder="山田 太郎" required>
+          </label>
+          <label>メールアドレス
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+          <label>メッセージ
+            <textarea name="message" rows="4" placeholder="ご要望や改善点など" required></textarea>
+          </label>
+          <button type="submit" class="btn primary full">送信</button>
+          <p class="muted small" id="form-feedback" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> My Static Site. Built for GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
