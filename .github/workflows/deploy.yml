@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      S3_BUCKET: yamazaki0216-my-site
+      S3_BUCKET: yamazaki0216-static-site
       DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
     steps:
