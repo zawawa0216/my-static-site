@@ -3,22 +3,19 @@ name: Deploy static site to S3
 on:
   push:
     branches:
-      - main  # メインブランチにpushしたらデプロイ
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     env:
-      AWS_REGION: ${{ secrets.AWS_REGION }}
-      S3_BUCKET: yamazaki0216-my-site           # ←自分のバケット名に変更
+      S3_BUCKET: yamazaki0216-my-site
       DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # もしビルド工程がない単純な静的サイトならこれだけでOK
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -26,9 +23,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync files to S3
-        run: |
-          aws s3 sync site/ s3://$S3_BUCKET --delete
+      - name: Sync to S3
+        run: aws s3 sync site/ s3://$S3_BUCKET --delete
 
       - name: Invalidate CloudFront cache
         run: |
